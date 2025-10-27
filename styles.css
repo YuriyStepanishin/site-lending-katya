@@ -1,0 +1,250 @@
+:root {
+  /* Темна тема — модна, контрастна, з неоновим акцентом */
+  --bg: #0b0b0f; /* графітовий фон */
+  --ink: #eaeaf2; /* основний текст */
+  --muted: #a0a0ad; /* вторинний текст */
+  --brand: #7c5cff; /* неоново‑фіолетовий акцент */
+  --surface: rgba(255, 255, 255, 0.04); /* скляні картки */
+  --surface-strong: rgba(255, 255, 255, 0.08);
+  --r: 16px;
+  --maxw: 980px;
+  --ring: 0 0 0 2px rgba(124, 92, 255, 0.35),
+    0 8px 30px rgba(124, 92, 255, 0.25);
+}
+
+/* База */
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: system-ui, Segoe UI, Inter, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: radial-gradient(
+      1200px 600px at 80% -10%,
+      rgba(124, 92, 255, 0.15),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at 10% 110%,
+      rgba(95, 230, 255, 0.12),
+      transparent 60%
+    ),
+    var(--bg);
+  line-height: 1.6;
+}
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Утиліти */
+.container {
+  width: min(100% - 2rem, var(--maxw));
+  margin-inline: auto;
+}
+.btn {
+  display: inline-block;
+  padding: 0.9rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--surface-strong);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  backdrop-filter: saturate(140%) blur(6px);
+}
+.btn--primary {
+  background: linear-gradient(180deg, rgba(124, 92, 255, 0.9), #6347ff);
+  color: #fff;
+  box-shadow: var(--ring);
+}
+.btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 2px rgba(124, 92, 255, 0.5),
+    0 14px 40px rgba(124, 92, 255, 0.35);
+}
+.btn--ghost {
+  background: transparent;
+  color: #cfcff9;
+  border-color: var(--surface-strong);
+}
+.btn--ghost:hover {
+  background: var(--surface);
+}
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--surface-strong);
+  border-radius: var(--r);
+  padding: 1.1rem;
+  backdrop-filter: saturate(140%) blur(8px);
+}
+
+.card-span {
+  font-size: 20px;
+  font-style: italic;
+  color: #7c5cff;
+}
+.cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.clean {
+  padding-left: 1.1rem;
+  margin: 0.3rem 0;
+}
+.price {
+  font-size: 1.9rem;
+  font-weight: 900;
+}
+.muted {
+  color: var(--muted);
+}
+.cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+/* Навігація */
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(11, 11, 15, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--surface-strong);
+  z-index: 10;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+}
+.brand {
+  font-weight: 900;
+  letter-spacing: 0.3px;
+}
+
+/* Секції */
+section {
+  padding: 2.4rem 0;
+}
+h1 {
+  font-size: clamp(1.75rem, 5.5vw, 3rem);
+  line-height: 1.1;
+  margin: 0.2rem 0 1rem;
+}
+h2 {
+  font-size: clamp(1.15rem, 2.5vw, 1.85rem);
+  margin: 0 0 1rem;
+}
+
+/* Герой */
+.hero {
+  background: transparent;
+}
+.hero__wrap {
+  display: grid;
+  gap: 1.2rem;
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+.hero__wrap img {
+  border-radius: var(--r);
+  border: 1px solid var(--surface-strong);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.4);
+}
+.hero-usp {
+  margin: 0.9rem 0;
+}
+
+/* План/тариф */
+.plan {
+  display: grid;
+  gap: 0.6rem;
+  align-items: center;
+}
+.plan .guarantee {
+  border-style: dashed;
+}
+
+/* Футер */
+footer {
+  background: transparent;
+  border-top: 1px solid var(--surface-strong);
+}
+.footer__row {
+  padding: 1.25rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* LiqPay форма */
+#liqpay-form {
+  display: grid;
+  gap: 0.6rem;
+}
+#liqpay-form small {
+  color: var(--muted);
+}
+
+/* =============
+   РЕСПОНСИВНІСТЬ
+   ============= */
+/* Мобільний — базові стилі вище */
+
+/* Планшет */
+@media (min-width: 768px) {
+  :root {
+    --maxw: 1040px;
+  }
+  .hero__wrap {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+  .price {
+    font-size: 2rem;
+  }
+}
+
+/* Десктоп */
+@media (min-width: 1200px) {
+  :root {
+    --maxw: 1180px;
+  }
+  section {
+    padding: 3rem 0;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  .cards {
+    gap: 1.2rem;
+  }
+}
+
+/* Дрібні штрихи */
+::selection {
+  background: rgba(124, 92, 255, 0.35);
+}
+hr {
+  border: none;
+  height: 1px;
+  background: var(--surface-strong);
+}
