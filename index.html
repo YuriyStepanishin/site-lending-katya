@@ -24,6 +24,31 @@
     </header>
 
     <main>
+      <button id="musicBtn" class="btn btn--ghost">🎵 Музика</button>
+      <audio id="bgMusic" loop>
+        <source
+          src="./music/victoria-niro-pitan-nema-(meloua.com).mp3"
+          type="audio/mpeg"
+        />
+      </audio>
+
+      <script>
+        const btn = document.getElementById('musicBtn');
+        const audio = document.getElementById('bgMusic');
+        let playing = false;
+
+        btn.addEventListener('click', () => {
+          if (!playing) {
+            audio.play();
+            btn.textContent = '🔇 Вимкнути музику';
+          } else {
+            audio.pause();
+            btn.textContent = '🎵 Музика';
+          }
+          playing = !playing;
+        });
+      </script>
+
       <!-- 1) Привітання / Знайомство -->
       <section class="hero" id="intro">
         <div class="container hero__wrap">
